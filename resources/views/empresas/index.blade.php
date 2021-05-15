@@ -3,6 +3,10 @@
 @section('content')
     <h1 class="container text-center">Empresas Registradas</h1>
 
+    <div class="container">
+        <a href={{route('empresas.create')}} class="btn btn-success">Crear Empresa</a>
+    </div>
+
     <div class="col-md-10 mx-auto bg-white p-3">
         <table class="table">
             <thead class="bg-primary text-light">

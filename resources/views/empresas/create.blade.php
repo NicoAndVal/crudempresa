@@ -16,8 +16,7 @@
                         class="form-control @error('nombre') is-invalid @enderror"
                         id="nombre"
                         placeholder="Nombre de la empresa"
-                        value={{old('nombre')}}
-                    />
+                        value={{old('nombre')}}>
 
                     @error('nombre')
                         <span class="invalid-feedback d-block" role="alert">

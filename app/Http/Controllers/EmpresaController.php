@@ -62,16 +62,29 @@ class EmpresaController extends Controller
         }else{
             $numTrabajadores= request()->all()['cantidad_trabajadores'];
         }
+        //Valida la cantidad de trabjadores
+        if(request()->all()['cantidad_trabajadores'] === null){
+            $numTrabajadores = 0;
+        }else{
+            $numTrabajadores= request()->all()['cantidad_trabajadores'];
+        }
+        $empresa = new Empresa();
+
+        $empresa->nombre = $data['nombre'];
+        $empresa->tipo_empresa = $data['tipo_empresa'];
+        $empresa->cantidad_trabajadores = $numTrabajadores;
+
+        $empresa->save();
 
         //Guardo en la base de datos
-        DB::table('empresas')->insert([
-            "nombre"=>$data['nombre'],
-            "cantidad_trabajadores"=>$numTrabajadores,
-            "tipo_empresa"=>$data['tipo_empresa'],
-            'created_at' =>date('Y-m-d H:i:s'),
-            'updated_at' =>date('Y-m-d H:i:s')
+        // DB::table('empresas')->insert([
+        //     "nombre"=>$data['nombre'],
+        //     "cantidad_trabajadores"=>$numTrabajadores,
+        //     "tipo_empresa"=>$data['tipo_empresa'],
+        //     'created_at' =>date('Y-m-d H:i:s'),
+        //     'updated_at' =>date('Y-m-d H:i:s')
 
-        ]);
+        // ]);
 
         return redirect()->action('EmpresaController@index');
     }

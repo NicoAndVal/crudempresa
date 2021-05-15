@@ -26,7 +26,7 @@ Route::get('/', function(){
 //Middleware para utilizar la autenticación de las rutas con jwt
 Route::group(['middleware' =>['web']], function(){
     Route::get('empresas', 'EmpresaController@index')->name('empresas.index');
-    Route::get('empresas/create', 'EmpresaController@create');
+    Route::get('empresas/create', 'EmpresaController@create')->name('empresas.create');
     Route::post('empresas', 'EmpresaController@store')->name('empresas.store');
     Route::get('empresas/{empresa}/edit','EmpresaController@edit')->name('empresa.edit');
     Route::put('empresa/{empresa}', 'EmpresaController@update')->name('empresa.update');
