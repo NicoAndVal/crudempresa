@@ -12,11 +12,13 @@ class TipoempesaSeeder extends Seeder
      */
     public function run()
     {
+        //insertar tipo de empresa software
         DB::table('tipo_empresa')->insert([
             'tipo'=>'Software',
             'created_at' =>date('Y-m-d H:i:s'),
             'updated_at' =>date('Y-m-d H:i:s')
         ]);
+        //insertar tipo de empresa software
         DB::table('tipo_empresa')->insert([
             'tipo'=>'Retail',
             'created_at' =>date('Y-m-d H:i:s'),

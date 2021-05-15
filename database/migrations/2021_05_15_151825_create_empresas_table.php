@@ -13,13 +13,14 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-
+        //Schema de los tipos de empresa
         Schema::create('tipo_empresa', function(Blueprint $table){
             $table->id();
             $table->string('tipo');
             $table->timestamps();
         });
 
+        //Schema de las empresas
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');

@@ -38,7 +38,7 @@ class EmpresaController extends Controller
         //Se consulta las categorias de empresas para pasarlas a la vista
         $tipo_empresa =DB::table('tipo_empresa')->get()->pluck('tipo');
 
-
+        //Redirige al listado de empresas luego de guardar en la BD
         return view('empresas.create')->with('tipo_empresa',$tipo_empresa);
     }
 
@@ -74,6 +74,7 @@ class EmpresaController extends Controller
         $empresa->tipo_empresa = $data['tipo_empresa'];
         $empresa->cantidad_trabajadores = $numTrabajadores;
 
+        //Se guarda la empresa
         $empresa->save();
 
         //Guardo en la base de datos
@@ -86,18 +87,8 @@ class EmpresaController extends Controller
 
         // ]);
 
+        //Redirige al listado de empresas
         return redirect()->action('EmpresaController@index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Empresa $empresa)
-    {
-        //
     }
 
     /**
@@ -108,8 +99,10 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        //Se obtienen los tipos de empresa
         $tipo_empresa =DB::table('tipo_empresa')->get()->pluck('tipo');
+
+        //Se redirige a la vista de editar
         return view('empresas.edit')->with('tipos_empresa',$tipo_empresa)->with('empresa',$empresa);
     }
 
@@ -139,6 +132,7 @@ class EmpresaController extends Controller
         $empresa->tipo_empresa = $data['tipo_empresa'];
         $empresa->cantidad_trabajadores = $numTrabajadores;
 
+        //Guardar empresa actualizada
         $empresa->save();
 
         //Redireccionar al index
@@ -156,6 +150,7 @@ class EmpresaController extends Controller
         //Eliminar Empresa
         $empresa->delete();
 
+        //Redirige al listado de empresas
         return redirect()->action('EmpresaController@index');
     }
 }

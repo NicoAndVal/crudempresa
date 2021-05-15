@@ -8,6 +8,8 @@
             {{-- Formulario para crear una nueva empresa --}}
             <form action={{route('empresas.store')}} method="POST" novalidate>
                 @csrf
+
+                {{-- Input del nombre --}}
                 <div class="form-group">
                     <label for="nombre">Nombre de la empresa</label>
 
@@ -17,7 +19,7 @@
                         id="nombre"
                         placeholder="Nombre de la empresa"
                         value={{old('nombre')}}>
-
+           {{-- Muestra el error --}}
                     @error('nombre')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>
@@ -26,6 +28,9 @@
                         </span>
                     @enderror
                 </div>
+
+
+                {{-- Input cantidad de trabajadores --}}
                 <div class="form-group">
                     <label for="cantidad_trabajadores">Número de trabajadores</label>
 
@@ -38,6 +43,7 @@
                     >
                 </div>
 
+                {{-- Select de los tipos de empresa --}}
                 <div class="form-group">
                     <label for="tipo_empresa">Tipo Empresa</label>
 
@@ -48,13 +54,14 @@
                             <option value={{$tipo}} {{old('tipo_empresa') ==$id ? 'selected':''}} >{{$tipo}}</option>
                         @endforeach
                     </select>
-
+           {{-- Muestra el error --}}
                     @error('tipo_empresa')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>
                         </span>
                     @enderror
                 </div>
+                {{-- Submit para guardar empresa --}}
                 <div class="form-group">
                     <input type="submit" value="Agrega Empresa" class="btn btn-primary">
                 </div>

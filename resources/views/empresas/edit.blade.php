@@ -9,7 +9,9 @@
             <form action={{route('empresa.update',['empresa'=>$empresa->id])}} method="POST" novalidate>
                 @csrf
 
+                {{-- Se actualiza la empresa por el método put --}}
                 @method('PUT')
+                {{-- Input del nombre de la empresa --}}
                 <div class="form-group">
                     <label for="nombre">Nombre de la empresa</label>
 
@@ -20,7 +22,7 @@
                         placeholder="Nombre de la empresa"
                         value='{{$empresa->nombre}}'
                     />
-
+                    {{-- Se muestra el error --}}
                     @error('nombre')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>
@@ -29,6 +31,7 @@
                         </span>
                     @enderror
                 </div>
+                {{-- Input de la cantidad de trabajadores --}}
                 <div class="form-group">
                     <label for="cantidad_trabajadores">Número de trabajadores</label>
 
@@ -41,6 +44,7 @@
                     >
                 </div>
 
+                {{-- Input del tipo de empresa --}}
                 <div class="form-group">
                     <label for="tipo_empresa">Tipo Empresa</label>
 
@@ -51,7 +55,7 @@
                             <option value={{$tipo}} {{$empresa->tipo_empresa==$tipo ? 'selected':''}} >{{$tipo}}</option>
                         @endforeach
                     </select>
-
+                    {{-- Se muestra el error --}}
                     @error('tipo_empresa')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>

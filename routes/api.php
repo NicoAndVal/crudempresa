@@ -19,16 +19,18 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/', function(){
-    return view('empresas.index');
-});
-
-//Middleware para utilizar la autenticación de las rutas con jwt
+//Rutas del crud
 Route::group(['middleware' =>['web']], function(){
+    //Muestra todas las empresas
     Route::get('empresas', 'EmpresaController@index')->name('empresas.index');
+    //Muestra el formulario para guardar una empresa
     Route::get('empresas/create', 'EmpresaController@create')->name('empresas.create');
+    //Guarda una empresa
     Route::post('empresas', 'EmpresaController@store')->name('empresas.store');
+    //Muestra vista de la empresa que se quiere editar
     Route::get('empresas/{empresa}/edit','EmpresaController@edit')->name('empresa.edit');
+    //Actualiza la empresa
     Route::put('empresa/{empresa}', 'EmpresaController@update')->name('empresa.update');
+    //Elimina la empresa
     Route::delete('empresa/{empresa}','EmpresaController@destroy')->name('empresa.destroy');
 });

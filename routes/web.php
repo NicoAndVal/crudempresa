@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('api/login');
 // });
 
+//Redirige a la api de las empresas
 Route::get('/', function(){
     return redirect('api/empresas');
 });
@@ -25,5 +26,3 @@ Route::get('/', function(){
 Auth::routes();
 
 
-
-Route::get('/home', 'HomeController@index')->name('home');
