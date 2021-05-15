@@ -18,7 +18,9 @@ cd crudempresa
 ## 3. Crear base de datos en local 
 
 DB_DATABASE=crudempresas
+
 DB_USERNAME=root
+
 DB_PASSWORD=root
 
 Si desea cambiar algún dato se puede hacer desde el archivo .env
@@ -26,6 +28,7 @@ Si desea cambiar algún dato se puede hacer desde el archivo .env
 ## 4. Instalar dependencias
 
 composer install
+
 npm install 
 
 ## 5. Migrar las tablas 
