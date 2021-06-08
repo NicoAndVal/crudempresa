@@ -1,54 +1,44 @@
 
-## Proyecto de crud de empresas
+## Proyecto final curso react native
 
-Una api donde se puede crear, listar, guardar y editar empresas. en el front se utilizo html con blade:
+se consumio una api desde: https://docs.thecatapi.com/ que muestra información de gatos (razas, imagenes y caracteristicas) 
 
-Para utilizar está api es necesario crear una base de datos con el nombre de crudempresas, 
-User: root
-Password: root
+Para ingresar en el login los datos son los siguientes, 
+User: UserCat123
+Password: 12345678
+(No se pueden cambiar los datos del login, si se pueden cambiar los datos del usuario, como nombre, correo, télefono), Solamente fue desarrollado 
+para android
 
 ## 1. Clonar repositorio
 
-git clone https://github.com/NicoAndVal/crudempresa.git
+git clone https://github.com/NicoAndVal/appReactNativeEscalab.git
+
 
 ## 2. Moverse a la carpeta del proyecto
 
-cd crudempresa
+cd appReactNativeEscalab
 
-## 3. Crear base de datos en local 
-
-DB_DATABASE=crudempresas
-
-DB_USERNAME=root
-
-DB_PASSWORD=root
-
-Si desea cambiar algún dato se puede hacer desde el archivo .env
-
-## 4. Instalar dependencias
-
-composer install
+## 3. Instalar dependencias
 
 npm install 
 
-## 5. Migrar las tablas 
+## 4. Ejecutar
 
-php artisan migrate
+npm start
 
-## 6.Insertar datos de prueba 
+npm run android
 
-php artisan db:seed
+## 5.Ingresar datos del login
 
-## 7. Correr el proyecto 
+User: UserCat123
+Password: 12345678
 
-php artisan serve 
+## 6. Que se puede hacer
 
-## 8. Abri app 
-
-Ingresar a http://127.0.0.1:8000
-
-## 9. App lista
-
-La aplicación permite crear empresas nuevas desde el botón crear empresa, se puede editar una empresa desde el botón "editar" y eliminar una empresa desde el botón "eliminar empresa"
+La aplicación permite hacer scroll entre los distintos gatos
+Puedes hacer click en cada gato para ver más detalles de ese gato en particular
+En el icono superior del Home (Icono tipico de usuario), se puede hacer click para ingresar a las settings
+Se puede cambiar el nobmre, correo, télefono y los datos persistiran 
+También se puede dar like a cada gato y los datos también persisitiran
 
 
